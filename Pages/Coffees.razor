@@ -1,0 +1,27 @@
+@page "/coffees"
+@inherits CoffeeComponent
+
+
+<h1>Coffees</h1>
+
+@if(@coffeeName == null) {
+    <p>Loading Coffee......</p>
+} else {
+    @coffeeName
+}
+
+
+
+@code{
+
+    public string coffeeName;
+    public string coffeeIndex = "1";
+
+    protected override async Task OnInitializedAsync()
+    {
+        coffeeName = await SearchedForCoffeeAsync(coffeeIndex);
+        System.Console.WriteLine(coffeeName);
+        base.OnInitialized();
+    }
+
+}
