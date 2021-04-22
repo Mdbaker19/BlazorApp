@@ -1,0 +1,25 @@
+@page "/stocks"
+@inherits StockComponent
+
+
+<TitleComponent Title="Stock"></TitleComponent>
+<DateComponent></DateComponent>
+@if(@stocks == null) {
+    <p>Loading Stock......</p>
+} else {
+    @stocks
+}
+
+
+
+@code{
+
+    public string stocks;
+
+    protected override async Task OnInitializedAsync()
+    {
+        stocks = await SearchedForStocksAsync();
+        base.OnInitialized();
+    }
+
+}

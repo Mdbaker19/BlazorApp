@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Components;
 namespace BlazorApp.BaseComponenets {
     public class CoffeeComponent : ComponentBase
     {
-        public async Task<string> SearchedForCoffeeAsync(string coffeeId)
+        public async Task<string> SearchedForCoffeeAsync()
         {
             try
             {
-                var client = new RestClient("https://coffee-project-api.herokuapp.com/coffees/" + coffeeId);
+                var client = new RestClient("https://coffee-project-api.herokuapp.com/coffees");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 IRestResponse response = await client.ExecuteAsync(request);
+                System.Console.WriteLine(response.Content);
                 return response.Content;
             } catch(Exception ex) 
             {

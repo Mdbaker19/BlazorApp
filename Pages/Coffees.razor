@@ -2,25 +2,23 @@
 @inherits CoffeeComponent
 
 
-<h1>Coffees</h1>
-
-@if(@coffeeName == null) {
+<TitleComponent Title="Coffees"></TitleComponent>
+<DateComponent></DateComponent>
+@* @if(@coffeeName == null) {
     <p>Loading Coffee......</p>
 } else {
     @coffeeName
-}
+} *@
 
 
 
 @code{
 
-    public string coffeeName;
-    public string coffeeIndex = "1";
+    public string coffeeListSize;
 
     protected override async Task OnInitializedAsync()
     {
-        coffeeName = await SearchedForCoffeeAsync(coffeeIndex);
-        System.Console.WriteLine(coffeeName);
+        coffeeListSize = await SearchedForCoffeeAsync();
         base.OnInitialized();
     }
 

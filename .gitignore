@@ -268,3 +268,7 @@ bin/
 obj/
 appsettings.Development.json
 appsettings.json
+
+keys.txt
+data.txt
+data2.txt
